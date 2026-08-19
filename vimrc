@@ -20,7 +20,32 @@
 " upgrade of the vim packages is performed. It is recommended to make changes
 " after sourcing debian.vim so your settings take precedence.
 
-runtime! debian.vim
+
+
+" runtime! debian.vim
+
+" ====================================================================
+" OS DETECTION (/etc/os-release)
+" ====================================================================
+let g:os_name = ""
+if filereadable("/etc/os-release")
+	let g:os_lines = readfile("/etc/os-release")
+	for g:line in g:os_lines
+		if g:line =~ '^ID='
+			let g:os_name = substitute(g:line, '^ID=\([''"]\?\)\(.*\)\1', '\2', '')
+			break
+		endif
+	endfor
+endif
+
+if g:os_name ==# "arch"
+    runtime! archlinux.vim
+
+elseif g:os_name ==# "ubuntu"
+    runtime! debian.vim
+
+endif
+
 
 " Uncomment the next line to make Vim more Vi-compatible
 " NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes
