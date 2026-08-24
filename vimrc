@@ -81,6 +81,20 @@ set ignorecase		" Do case insensitive matching
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
+set autoindent          " Auto-indentation
+
+" Set the default indentation to 2 for all files
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+" Highlight trailing whitespace in all files
+autocmd BufRead,BufNewFile * match Error /\s\+$/
+
+" Set backspace so it acts more intuitively
+set backspace=indent,eol,start
+
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
