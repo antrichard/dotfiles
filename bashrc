@@ -124,4 +124,8 @@ source /etc/bash_completion
 source <(kubectl completion bash)
 complete -o default -F __start_kubectl k
 
+# Set Vim as default editor
+export EDITOR='/usr/bin/vim'
+export VISUAL='/usr/bin/vim'
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
