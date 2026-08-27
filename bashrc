@@ -116,16 +116,25 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+# Show Neofetch at boot
 #neofetch
 
-# kube
-alias k='kubectl'
-source /etc/bash_completion
-source <(kubectl completion bash)
-complete -o default -F __start_kubectl k
+# Pifetch
+#if [ -z "$PIFETC_SHOWN" ]; then
+#	export PIFETCH_SHOWN=1
+#	bash /etc/update-motd.d/99-pifetch
+#fi
+
+# Kubernetes
+#alias k='kubectl'
+#source /etc/bash_completion
+#source <(kubectl completion bash)
+#complete -o default -F __start_kubectl k
 
 # Set Vim as default editor
 export EDITOR='/usr/bin/vim'
 export VISUAL='/usr/bin/vim'
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Homebrew
+#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
