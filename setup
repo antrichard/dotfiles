@@ -9,4 +9,9 @@ ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 # mkdir -p ~/.config
 # ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml
 
-echo "Dotfiles linked!"
+
+echo "# ================"
+echo "# Dotfiles linked!"
+echo "# ================"
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"

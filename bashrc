@@ -138,3 +138,15 @@ export VISUAL='/usr/bin/vim'
 
 # Homebrew
 #eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Couleurs Tokyo Night pour le prompt Bash
+TN_BLUE="\[\033[38;5;111m\]"
+TN_GREEN="\[\033[38;5;120m\]"
+TN_PURPLE="\[\033[38;5;176m\]"
+TN_COMMENT="\[\033[38;5;61m\]"
+RESET="\[\033[0m\]"
+
+# Structure du Prompt : [utilisateur@machine] ~ $
+export PS1="${TN_PURPLE}[${TN_BLUE}\u${TN_COMMENT}@${TN_BLUE}\h${TN_PURPLE}] ${TN_GREEN}\w${RESET} \n$ "
+#export PS1="${TN_PURPLE}[${TN_BLUE}\u${TN_COMMENT}@${TN_BLUE}\h${TN_PURPLE}] ${TN_GREEN}\w${RESET} $ "
+
