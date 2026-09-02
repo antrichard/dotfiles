@@ -150,3 +150,4 @@ RESET="\[\033[0m\]"
 export PS1="${TN_PURPLE}[${TN_BLUE}\u${TN_COMMENT}@${TN_BLUE}\h${TN_PURPLE}] ${TN_GREEN}\w${RESET} \n$ "
 #export PS1="${TN_PURPLE}[${TN_BLUE}\u${TN_COMMENT}@${TN_BLUE}\h${TN_PURPLE}] ${TN_GREEN}\w${RESET} $ "
 
+export PATH="$HOME/.local/bin:$PATH"

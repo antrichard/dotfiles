@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Description: compter le nombre de fichier dans le dossier dotfiles
+
+dotfiles_dir="$HOME/dotfiles"
+files_count=$(find "$dotfiles_dir" | wc -l)
+today=$(date +%Y-%m-%d)
+
+echo "=== Dotfiles Info ==="
+echo "User: $USER"
+echo "Dotfiles location: $dotfiles_dir"
+echo "Files tracked: $files_count"
+echo "Date: $today"
+
