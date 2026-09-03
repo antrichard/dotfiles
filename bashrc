@@ -127,17 +127,21 @@ fi
 #fi
 
 # Kubernetes
-#alias k='kubectl'
-#source /etc/bash_completion
-#source <(kubectl completion bash)
-#complete -o default -F __start_kubectl k
+# Enable completion if kubectl is available
+if command -v kubectl &> /dev/null; then
+  alias k='kubectl'
+  source <(kubectl completion bash)
+  complete -o default -F __start_kubectl k
+fi
 
 # Set Vim as default editor
 export EDITOR='/usr/bin/vim'
 export VISUAL='/usr/bin/vim'
 
 # Homebrew
-#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # Couleurs Tokyo Night pour le prompt Bash
 TN_BLUE="\[\033[38;5;111m\]"
