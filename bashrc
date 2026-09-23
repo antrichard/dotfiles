@@ -129,6 +129,7 @@ fi
 # Kubernetes
 # Enable completion if kubectl is available
 if command -v kubectl &> /dev/null; then
+  export KUBECONFIG=$HOME/.kube/config
   alias k='kubectl'
   source <(kubectl completion bash)
   complete -o default -F __start_kubectl k
@@ -150,8 +151,14 @@ TN_PURPLE="\[\033[38;5;176m\]"
 TN_COMMENT="\[\033[38;5;61m\]"
 RESET="\[\033[0m\]"
 
-# Structure du Prompt : [utilisateur@machine] ~ $
-export PS1="${TN_PURPLE}[${TN_BLUE}\u${TN_COMMENT}@${TN_BLUE}\h${TN_PURPLE}] ${TN_GREEN}\w${RESET} \n$ "
-#export PS1="${TN_PURPLE}[${TN_BLUE}\u${TN_COMMENT}@${TN_BLUE}\h${TN_PURPLE}] ${TN_GREEN}\w${RESET} $ "
+# Structure du Prompt : [utilisateur@machine] ~ >
+export PS1="${TN_PURPLE}[${TN_BLUE}\u${TN_COMMENT}@${TN_BLUE}\h${TN_PURPLE}] ${TN_GREEN}\w${RESET} \n${TN_PURPLE}>${RESET} "
 
 export PATH="$HOME/.local/bin:$PATH"
+
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+
+# Autocompletion for uv and uvx commands
+eval "$(uv generate-shell-completion bash)"
+eval "$(uvx --generate-shell-completion bash)"
