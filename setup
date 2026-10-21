@@ -26,4 +26,10 @@
 
 #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
-echo "set -o vi" >> ~/.bashrc
+set -euo pipefail
+
+if ! command -v chezmoi >/dev/null; then
+    sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply git@github.com:antrichard/dotfiles.git
+fi
+
+exit 0
