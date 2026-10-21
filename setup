@@ -29,7 +29,7 @@
 set -euo pipefail
 
 if ! command -v chezmoi >/dev/null; then
-    sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply git@github.com:antrichard/dotfiles.git
+    sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b $HOME/.local/bin init --apply git@github.com:antrichard/dotfiles.git
 fi
 
 exit 0
