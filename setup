@@ -2,26 +2,28 @@
 
 # Description: Link dotfiles to home directory
 
-link_dot_file() {
-    local src="$1"
-    local dest="$2"
-    ln -sf "$src" "$dest"
-    echo "Linked: $dest"
-}
+#link_dot_file() {
+#    local src="$1"
+#    local dest="$2"
+#    ln -sf "$src" "$dest"
+#    echo "Linked: $dest"
+#}
 
-dotfiles=("bashrc" "vimrc" "tmux.conf")
+#dotfiles=("bashrc" "vimrc" "tmux.conf")
 
-for file in "${dotfiles[@]}"; do
-    link_dot_file "$HOME/dotfiles/$file" "$HOME/.$file"
-done
+#for file in "${dotfiles[@]}"; do
+#    link_dot_file "$HOME/dotfiles/$file" "$HOME/.$file"
+#done
 
 
 # mkdir -p ~/.config
 # ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml
 
 
-echo "# ================"
-echo "# Dotfiles linked!"
-echo "# ================"
+#echo "# ================"
+#echo "# Dotfiles linked!"
+#echo "# ================"
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+
+echo "set -o vi" >> ~/.bashrc
