@@ -1,7 +1,15 @@
 [tools]
-bat = "latest"
+# Runtimes and editors
+vim = "latest"
 chezmoi = "latest"
+
+# Navigation and display tools
+bat = "latest"
 fzf = "latest"
+lsd = "latest"
+ripgrep = "latest"
+
+# Kubernetes ecosystem
+kubectl = "latest"
 kubectx = "latest"
 kubens = "latest"
-vim = "latest"
