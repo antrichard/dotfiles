@@ -20,6 +20,10 @@ autoload -U promptinit; promptinit
 
 prompt pure
 
+zstyle :prompt:pure:user color 111
+zstyle :prompt:pure:host color 111
+zstyle :prompt:pure:path color 120
+
 
 # enable zsh vi-mode
 bindkey -v
@@ -87,4 +91,3 @@ if command -v lsd > /dev/null ; then
   alias lla='ls -lgha'
   alias lt='ls --tree'
 fi
-
