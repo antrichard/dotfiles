@@ -1,5 +1,6 @@
+{{- $identity :=  "~/.ssh/id_ed25519" -}}
 encryption = "age"
 
 [age]
-    identity = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN04bUI6qNwKQre/NLVxsGBYcwjt6zQOvfms3iqM+kS2"
+    identity = {{ $identity | quote }}
     recipient = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN04bUI6qNwKQre/NLVxsGBYcwjt6zQOvfms3iqM+kS2"
