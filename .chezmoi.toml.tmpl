@@ -1,8 +1,7 @@
 {{- $identity := "~/.ssh/id_ed25519" -}}
 {{- if and (not (stat (expandenv $identity))) (env "SSH_AUTH_SOCK") -}}
-{{-   $identity = joinPath .chezmoi.cacheDir "ssh-agent-identity" -}}
+{{-   $identity = "/tmp/ssh-agent-identity" -}}
 {{-   if not (stat $identity) -}}
-{{-     $_ := mkdir (dir $identity) -}}
 {{-     $_ := output "sh" "-c" (printf "ssh-add -L | head -n 1 > %s" $identity) -}}
 {{-   end -}}
 {{- end -}}
