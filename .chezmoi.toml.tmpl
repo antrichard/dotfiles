@@ -2,7 +2,7 @@
 {{- if and (not (stat (expandenv $identity))) (env "SSH_AUTH_SOCK") -}}
 {{-   $identity = "/tmp/ssh-agent-identity" -}}
 {{-   if not (stat $identity) -}}
-{{-     $_ := output "sh" "-c" (printf "ssh-add -L | head -n 1 > %s" $identity) -}}
+{{-     $_ := output "sh" "-c" (printf "echo '-----BEGIN OPENSSH PRIVATE KEY-----' > %s" $identity) -}}
 {{-   end -}}
 {{- end -}}
 
