@@ -1,5 +1,5 @@
 [env]
-_env_file = "~/.config/mise/.env.local"
+GITHUB_TOKEN = "{{ env "GITHUB_TOKEN" }}"
 
 [settings]
 jobs = 5
@@ -8,7 +8,6 @@ jobs = 5
 # Runtimes and editors
 vim = "latest"
 chezmoi = "latest"
-age = "latest"
 
 # Navigation and display tools
 bat = "latest"
