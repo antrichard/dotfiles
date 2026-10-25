@@ -1,7 +1,14 @@
+[env]
+_env_file = "~/.config/mise/.env.local"
+
+[settings]
+jobs = 5
+
 [tools]
 # Runtimes and editors
 vim = "latest"
 chezmoi = "latest"
+age = "latest"
 
 # Navigation and display tools
 bat = "latest"
