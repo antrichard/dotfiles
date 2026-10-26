@@ -15,11 +15,20 @@ if [ ! -d "$HOME/.zsh/pure" ]; then
   git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 fi
 
+
+mkdir -p "$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
+
 if ! command -v chezmoi >/dev/null; then
-    sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b $HOME/.local/bin init --apply git@github.com:antrichard/dotfiles.git
+  echo "Chezmoi is not available. Setting up and initializing..."
+  sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b $HOME/.local/bin init --apply git@github.com:antrichard/dotfiles.git
+else
+  echo "Chezmoi is available. Applying dotfiles..."
+  if [ ! -d "$HOME/.local/share/chezmoi" ]; then
+    chezmoi init --apply git@github.com:antrichard/dotfiles.git
+  else
+    chezmoi apply
+  fi
 fi
 
 exit 0
-
-
-#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
