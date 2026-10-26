@@ -7,7 +7,6 @@ jobs = 5
 [tools]
 # Runtimes and editors
 vim = "latest"
-chezmoi = "latest"
 
 # Navigation and display tools
 bat = "latest"
