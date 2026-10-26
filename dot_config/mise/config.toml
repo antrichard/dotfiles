@@ -13,6 +13,7 @@ bat = "latest"
 fzf = "latest"
 lsd = "latest"
 ripgrep = "latest"
+tmux = "latest"
 
 # Kubernetes ecosystem
 kubectl = "latest"
