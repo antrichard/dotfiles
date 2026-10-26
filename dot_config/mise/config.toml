@@ -1,6 +1,3 @@
-[env]
-GITHUB_TOKEN = "{{ env 'GITHUB_TOKEN' }}"
-
 [settings]
 jobs = 5
 
