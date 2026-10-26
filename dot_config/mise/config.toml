@@ -1,3 +1,6 @@
+[settings.url_replacements]
+"https://github.com/" = "https://gh.llkk.cc/https://github.com/"
+
 [settings]
 jobs = 5
 
