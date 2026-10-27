@@ -1,5 +1,8 @@
 [settings.url_replacements]
 "https://github.com/" = "https://gh.llkk.cc/https://github.com/"
+#"https://github.com/" = "https://gh.proxy.com/https://github.com/"
+#"https://github.com/" = "https://ghproxy.net"
+#"https://github.com/" = "https://moeyy.cn"
 
 [settings]
 jobs = 5
@@ -7,6 +10,8 @@ jobs = 5
 [tools]
 # Runtimes and editors
 vim = "latest"
+neovim = "latest"
+node = "latest"
 
 # Navigation and display tools
 bat = "latest"
