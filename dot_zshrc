@@ -101,6 +101,7 @@ fi
 
 alias gp="git pull"
 alias gs="git status"
+alias gd="git diff"
 alias lg=lazygit
 
 

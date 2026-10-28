@@ -12,6 +12,7 @@ jobs = 5
 vim = "latest"
 neovim = "latest"
 node = "latest"
+lazygit = "latest"
 
 # Navigation and display tools
 bat = "latest"
