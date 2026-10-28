@@ -8,6 +8,7 @@ SAVEHIST=100000
 setopt HIST_IGNORE_DUPS  # Don't save duplicate lines
 setopt SHARE_HISTORY     # Share history between sessions
 
+
 # ~~~~~~~~~~~~~~~ Prompt ~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -35,12 +36,22 @@ export KEYTIMEOUT=1 # make switching between modes faster
 # ~~~~~~~~~~~~~~~ Environment Variables ~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+export EDITOR='/usr/bin/vim'
+export VISUAL='/usr/bin/vim'
 if command -v nvim > /dev/null ; then
   export EDITOR="nvim"
   export VISUAL="nvim"
 fi
 
 export LANG="en_US.UTF-8"
+
+
+# ~~~~~~~~~~~~~~~ Homebrew ~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 
 # ~~~~~~~~~~~~~~~ Mise ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,7 +72,9 @@ if command -v fzf > /dev/null ; then
 fi
 
 if command -v kubectl > /dev/null ; then
+  export KUBECONFIG=$HOME/.kube/config
   source <(kubectl completion zsh)
+  compdef __start_kubectl k
 fi
 
 if command -v flux > /dev/null ; then
@@ -76,11 +89,24 @@ if command -v mise > /dev/null ; then
   source <(mise completion zsh)
 fi
 
+if command -v uv &> /dev/null; then
+  eval "$(uv generate-shell-completion zsh)"
+fi
+
+if command -v uvx &> /dev/null; then
+  eval "$(uvx --generate-shell-completion zsh)"
+fi
+
 
 # ~~~~~~~~~~~~~~~ Aliases ~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+# NeoVim
+
 alias v=nvim
+
+
+# bat (better cat)
 
 if command -v bat > /dev/null ; then
   alias cat="bat --paging=never"
@@ -88,13 +114,19 @@ if command -v bat > /dev/null ; then
   alias -g -- --help="--help 2>&1 | bat --language=help --style=plain"
 fi
 
+
+# lsd
+
+alias ls='ls -h --group-directories-first'
 if command -v lsd > /dev/null ; then
-  alias ls="lsd"
-  alias ll="ls -lgh"
-  alias la='ls -lathr'
-  alias lla='ls -lgha'
-  alias lt='ls --tree'
+  alias ls='lsd -h --group-directories-first'
+  alias lgit='ls -lFAg'          # complete list with git status
+  alias ltree='ls --tree'        # tree
+  alias ltreea='ls --tree -A'    # tree with hidden elements
 fi
+alias l='ls -lF'               # detailed list
+alias la='ls -lFA'             # complete list (with hidden elements)
+alias lt='ls -lFAtr'           # all elements sorted by last modified
 
 
 # Git
