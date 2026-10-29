@@ -72,7 +72,6 @@ if command -v fzf > /dev/null ; then
 fi
 
 if command -v kubectl > /dev/null ; then
-  export KUBECONFIG=$HOME/.kube/config
   source <(kubectl completion zsh)
   compdef __start_kubectl k
 fi
